@@ -1,25 +1,27 @@
-import { Stack, Box, Button, Avatar, Flex, Text } from "@chakra-ui/react"
+import { Stack, HStack, VStack, Avatar, Text } from "@chakra-ui/react"
 import InputComponent from "./InputComponent"
 import MenuIcon from "./MenuIcon"
 import ButtonComp from "./ButtonComponent"
 
-export default function Card() {
+export default function Card({ data }) {
+    const { button, name, time, p1, p2, formText, inputPlaceHolder } = data;
     return (
         <Stack align="center" justify="center" minH="100vh" w="100vw">
-            <Box bg="#272B35" w={["xs", "sm", "md", "lg", "2xl"]} borderWidth="1px" borderRadius="2xl" textStyle="body" my={["6", "6", "0", "0"]}>
-                <Box p="6" pb="3" bg="#272B35" borderRadius="2xl">
-                    <Flex justify="space-between">
-                        <Flex align="center" fontSize={["xs", "xs", "lg"]}>
-                            <ButtonComp />
-                            <Avatar mr={["1", "2"]} name="Bibek" src="https://bit.ly/dan-abramov" />
-                            <Text color="white" mr={["1", "2"]} fontSize={["xs", "xs", "lg"]}>Ralph Edwards</Text>
-                            <Text color="white" fontSize={["xs", "xs", "sm"]} opacity="0.5">3h ago</Text>
-                        </Flex>
+            <Stack bg="#272B35" w={["xs", "md", "md", "lg", "2xl"]} borderWidth="1px" borderRadius="2xl" my={["6", "6", "0", "0"]}>
+                <VStack p="6" align="start" spacing="6" bg="#272B35" borderRadius="2xl">
+                    <HStack w="100%" justify="space-between" align="start">
+                        <HStack spacing={["1", "2"]} align="center" fontSize={["xs", "xs", "lg"]}>
+                            <ButtonComp text={button} />
+                            <Avatar name="Bibek" src="https://bit.ly/dan-abramov" />
+                            <Text color="white" fontSize={["xs", "sm", "lg"]}>{name}</Text>
+                            <Text color="white" fontSize={["xs", "xs", "sm"]} opacity="0.5">{time}</Text>
+                        </HStack>
                         <MenuIcon />
-                    </Flex>
+                    </HStack>
 
-                    <Box
-                        my="6"
+                    <VStack
+                        spacing={4}
+                        align="stretch"
                         fontWeight="normal"
                         as="h4"
                         color="#ffffff"
@@ -27,15 +29,15 @@ export default function Card() {
                         lineHeight="tight"
                         textStyle="mono"
                     >
-                        <Text mb="5">Velit ut ultrices quis viverra eu, ultricies nulla at nec. Ut diam venenatis egestas massa vulputate nam. Pretium eros, imperdiet odio sit. Natoque quam mi ut leo. Sed ut sit cursus nunc, sit. Magna neque vel amet sem vulputate lacus ut.</Text>
-                        <Text>Diam lacus sed ornare vulputate. Vulputate magna id suspendisse aliquam. Sit fames est proin diam morbi purus non. Purus donec eu arcu euismod. Volutpat facilisi venenatis phasellus maecenas in.</Text>
-                    </Box>
-                </Box>
-                <Box bg="rgba(95, 116, 149, 0.1)" color="#5F74951A" p="4" borderBottomRadius="2xl">
-                    <Text color="white" fontSize="lg" mb="3">How can you help with this Request?</Text>
-                    <InputComponent />
-                </Box>
-            </Box>
+                        <Text>{p1}</Text>
+                        <Text>{p2}</Text>
+                    </VStack>
+                </VStack>
+                <VStack spacing="0" align="start" bg="rgba(95, 116, 149, 0.1)" color="#5F74951A" p="6" borderBottomRadius="2xl">
+                    <Text color="white" fontSize={["md", "lg"]} mb="3">{formText}</Text>
+                    <InputComponent placeholder={inputPlaceHolder} />
+                </VStack>
+            </Stack>
         </Stack>
     )
 }
