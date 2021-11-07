@@ -3,8 +3,8 @@ import InputComponent from "./InputComponent"
 import MenuIcon from "./MenuIcon"
 import ButtonComp from "./ButtonComponent"
 
-export default function Card({ data }) {
-    const { button, name, avatarName, link, time, p1, p2, formText, inputPlaceHolder } = data;
+export default function Card({ button, name, avatarName, link, time, p1, p2, formText, inputPlaceHolder }) {
+    // const { button, name, avatarName, link, time, p1, p2, formText, inputPlaceHolder } = data;
     return (
         <Stack align="center" justify="center" minH="100vh" w="100vw">
             <Stack bg="#272B35" w={["xs", "md", "md", "lg", "2xl"]} borderWidth="1px" borderRadius="2xl" my={["6", "6", "0", "0"]}>

@@ -13,5 +13,5 @@ const data = {
 }
 
 export default function Home() {
-  return <Card data={data} />
+  return <Card button={data.button} name={data.name} avatarName={data.avatarName} link={data.link} time={data.time} p1={data.p1} p2={data.p2} formText={data.formText} inputPlaceHolder={data.inputPlaceHolder} />
 }
