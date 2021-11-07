@@ -4,7 +4,7 @@ import MenuIcon from "./MenuIcon"
 import ButtonComp from "./ButtonComponent"
 
 export default function Card({ data }) {
-    const { button, name, time, p1, p2, formText, inputPlaceHolder } = data;
+    const { button, name, avatarName, link, time, p1, p2, formText, inputPlaceHolder } = data;
     return (
         <Stack align="center" justify="center" minH="100vh" w="100vw">
             <Stack bg="#272B35" w={["xs", "md", "md", "lg", "2xl"]} borderWidth="1px" borderRadius="2xl" my={["6", "6", "0", "0"]}>
@@ -12,7 +12,7 @@ export default function Card({ data }) {
                     <HStack w="100%" justify="space-between" align="start">
                         <HStack spacing={["1", "2"]} align="center" fontSize={["xs", "xs", "lg"]}>
                             <ButtonComp text={button} />
-                            <Avatar name="Bibek" src="https://bit.ly/dan-abramov" />
+                            <Avatar name={avatarName} src={link} />
                             <Text color="white" fontSize={["xs", "sm", "lg"]}>{name}</Text>
                             <Text color="white" fontSize={["xs", "xs", "sm"]} opacity="0.5">{time}</Text>
                         </HStack>
